@@ -4,9 +4,13 @@ import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Restaurant.*;
+
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -231,16 +235,20 @@ public class PizzaGUI extends javax.swing.JFrame {
     }
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        DefaultTableModel customerTableModel = (DefaultTableModel) customerTbl.getModel();
-        customerTableModel.setRowCount(0);
-        DefaultTableModel pizzaTableModel = (DefaultTableModel) orderTbl.getModel();
-        pizzaTableModel.setRowCount(0);
-        filePathFld.setText("");
-        totalProfitFld.setText("");
-        deliveryDistanceFld.setText("");
-        loadLogBtn.setEnabled(true);
-        calculateBtn.setEnabled(false);
-        resetBtn.setEnabled(false);        
+        reset();
+    }
+    
+    private void reset(){
+    	 DefaultTableModel customerTableModel = (DefaultTableModel) customerTbl.getModel();
+         customerTableModel.setRowCount(0);
+         DefaultTableModel pizzaTableModel = (DefaultTableModel) orderTbl.getModel();
+         pizzaTableModel.setRowCount(0);
+         filePathFld.setText("");
+         totalProfitFld.setText("");
+         deliveryDistanceFld.setText("");
+         loadLogBtn.setEnabled(true);
+         calculateBtn.setEnabled(false);
+         resetBtn.setEnabled(false);       
     }
 
     private void calculateBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,11 +263,23 @@ public class PizzaGUI extends javax.swing.JFrame {
                 populateTables();
             }
         } catch (CustomerException ex) {
+        	JOptionPane.showMessageDialog(new JFrame(),"Invalid Customer", "Error", JOptionPane.ERROR_MESSAGE);
+        	//reset
+        	reset();
+        	
             Logger.getLogger(PizzaGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PizzaException ex) {
-            Logger.getLogger(PizzaGUI.class.getName()).log(Level.SEVERE, null, ex);
+        	JOptionPane.showMessageDialog(new JFrame(),"Invalid Pizza", "Error", JOptionPane.ERROR_MESSAGE);
+        	//reset
+        	reset();
+        	
+        	Logger.getLogger(PizzaGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (LogHandlerException ex) {
-            Logger.getLogger(PizzaGUI.class.getName()).log(Level.SEVERE, null, ex);
+        	JOptionPane.showMessageDialog(new JFrame(),"Invalid Customer", "Error", JOptionPane.ERROR_MESSAGE);
+        	//reset
+        	reset();
+        	
+        	Logger.getLogger(PizzaGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

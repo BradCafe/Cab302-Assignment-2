@@ -131,8 +131,14 @@ public class LogHandler {
 		} catch(Exception ex) {
 			throw new LogHandlerException("Encountered problem pasring line" + ex);
 		}
-
-		String pizzaCode = lineValues[7];
+		
+		String pizzaCode = null;
+		try{
+			pizzaCode = lineValues[7];
+		}catch (Exception ex){
+			throw new LogHandlerException("Line input:" + line + " is not valid " + ex);
+		}
+		
 				
 		int quantity = 0;
 		try {
