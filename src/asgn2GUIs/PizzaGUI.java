@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Person A and Person B
+ * @author Bradley Caferra and Dietriche Rausim
  */
 public class PizzaGUI extends javax.swing.JFrame {
 

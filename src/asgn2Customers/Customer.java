@@ -8,7 +8,7 @@ import asgn2Exceptions.CustomerException;
  *  the abstract method getDeliveryDistance. A description of the class's
  * fields and their constraints is provided in Section 5.2 of the Assignment Specification.  
  * 
- * @author Person B
+ * @author Bradley Caferra
 */
 public abstract class Customer {
 
@@ -30,8 +30,38 @@ public abstract class Customer {
 	 * @throws CustomerException if supplied parameters are invalid 
 	 * 
 	 */
+	
+	
+	protected String name;
+	protected String mobileNumber;
+	protected int locationX;
+	protected int locationY;
+	protected String type;
+	
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
-		// TO DO
+		if(!(type.equals("Pick Up") | type.equals("Driver Delivery") | type.equals("Drone Delivery"))){
+			throw new CustomerException("Invalid Customer Type.");
+		}
+		if(name.length() > 20){
+			throw new CustomerException("Customer name too long");
+		}
+		if(name.equals(new String(new char[name.length()]).replace("\0", " "))){
+			throw new CustomerException("Customer name cannot be blank.");
+		}
+		if(mobileNumber.length() != 10){
+			throw new CustomerException("Mobile number must be 10 digits long.");
+		}
+		if(mobileNumber.charAt(0) != '0'){
+			throw new CustomerException("Mobile number must start with 0.");
+		}
+		if(type=="Pick Up" && !((locationX == 0) && (locationY == 0))){
+			throw new CustomerException("Pick Up Customer must be located in the store (0,0).");
+		}
+		this.name = name;
+		this.type = type;
+		this.mobileNumber = mobileNumber;
+		this.locationX = locationX;
+		this.locationY = locationY;
 	}
 	
 	/**
@@ -39,7 +69,7 @@ public abstract class Customer {
 	 * @return The Customer's name.
 	 */
 	public final String getName(){
-		// TO DO
+		return name;
 	}
 	
 	/**
@@ -47,7 +77,7 @@ public abstract class Customer {
 	 * @return The Customer's mobile number.
 	 */
 	public final String getMobileNumber(){
-		// TO DO
+		return mobileNumber;
 	}
 
 	/**
@@ -56,7 +86,7 @@ public abstract class Customer {
 	 * @return A human understandable description of the Customer's type.
 	 */
 	public final String getCustomerType(){
-		// TO DO
+		return type;
 	}
 	
 	/**
@@ -65,7 +95,7 @@ public abstract class Customer {
 	 * @return The Customer's X location
 	 */
 	public final int getLocationX(){
-		// TO DO
+		return locationX;
 	}
 
 	/**
@@ -74,7 +104,7 @@ public abstract class Customer {
 	 * @return The Customer's Y location
 	 */
 	public final int getLocationY(){
-		// TO DO
+		return locationY;
 	}
 
 	/**
