@@ -25,6 +25,7 @@ public class CustomerTests {
 	PickUpCustomer testPickUp;
 	DriverDeliveryCustomer testDriver;
 	DroneDeliveryCustomer testDrone;
+	PickUpCustomer customerTest;
 	
 	@Before
 	public void setup() throws CustomerException{
@@ -60,4 +61,48 @@ public class CustomerTests {
 		assertEquals(testDrone.getLocationY(), -2);
 	}
 	
+	@Test(expected = CustomerException.class)
+	public void nameBlankTest() throws CustomerException{
+		customerTest = new PickUpCustomer("     ", "0566666666", 0, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void nameLargeTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name Name Name Name", "0566666666", 0, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void longNumberTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name", "056666666666", 0, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void nonZeroNumberTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name", "1566666666", 0, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void wrongLocationXTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name", "0566666666", 1, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void wrongLocationYTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name", "0566666666", 0, 1);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void wrongLocationsTest() throws CustomerException{
+		customerTest = new PickUpCustomer("Name Name", "0566666666", 1, 1);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void wrongLocationsDeliveryTest() throws CustomerException{
+		testDriver = new DriverDeliveryCustomer("Name Name", "0566666666", 0, 0);
+	}
+	
+	@Test(expected = CustomerException.class)
+	public void wrongLocationsDroneTest() throws CustomerException{
+		testDrone = new DroneDeliveryCustomer("Name Name", "0566666666", 0, 0);
+	}
 }
