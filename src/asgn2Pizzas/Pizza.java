@@ -1,6 +1,9 @@
 package asgn2Pizzas;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+
+import asgn2Exceptions.PizzaException;
 
 
 /**
@@ -31,9 +34,25 @@ public abstract class Pizza  {
 	 * @throws PizzaException if supplied parameters are invalid 
 	 * 
 	 */
+	
+	   int quantity;
+       LocalTime orderTime,deliveryTime;
+       String type;
+       double price;
+       double cost=0.0;
+       
+       ArrayList<PizzaTopping> pizzaTopping;
+  
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
-		// TO DO	
+		this.quantity = quantity;
+              this.orderTime = orderTime;
+              this.deliveryTime = deliveryTime;
+              this.type = type;
+              this.price = price;
+              pizzaTopping = new ArrayList<PizzaTopping>();
+              
 	}
+	
 
 	/**
 	 * Calculates how much a pizza would cost to make calculated from its toppings.
@@ -43,6 +62,9 @@ public abstract class Pizza  {
 	 */
 	public final void calculateCostPerPizza(){
 		// TO DO
+		 for(PizzaTopping p:pizzaTopping){
+             cost += p.getCost();
+         }
 	}
 	
 	/**
@@ -51,6 +73,7 @@ public abstract class Pizza  {
 	 */
 	public final double getCostPerPizza(){
 		// TO DO
+		return cost;
 	}
 
 	/**
@@ -59,6 +82,7 @@ public abstract class Pizza  {
 	 */
 	public final double getPricePerPizza(){
 		// TO DO
+		return price;
 	}
 
 	/**
@@ -67,6 +91,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderCost(){
 		// TO DO
+		return cost*quantity;
 	}
 	
 	/**
@@ -75,6 +100,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderPrice(){
 		// TO DO
+		return price*quantity;
 	}
 	
 	
@@ -84,6 +110,7 @@ public abstract class Pizza  {
 	 */
 	public final double getOrderProfit(){
 		// TO DO
+		return ((price*quantity)-(cost*quantity));
 	}
 	
 
@@ -94,6 +121,11 @@ public abstract class Pizza  {
 	 */
 	public final boolean containsTopping(PizzaTopping topping){
 		// TO DO
+		for(PizzaTopping p : pizzaTopping){
+            if(p == topping)
+                return true;
+        }                
+        return false;
 	}
 	
 	/**
@@ -102,6 +134,7 @@ public abstract class Pizza  {
 	 */
 	public final int getQuantity(){
 		// TO DO
+		return quantity;
 	}
 
 	/**
@@ -111,6 +144,7 @@ public abstract class Pizza  {
 	 */
 	public final String getPizzaType(){
 		// TO DO
+		return type;
 	}
 
 
