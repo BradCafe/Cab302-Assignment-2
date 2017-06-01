@@ -14,7 +14,7 @@ import asgn2Pizzas.Pizza;
  * and Customer object - either as an individual Pizza/Customer object or as an
  * ArrayList of Pizza/Customer objects.
  * 
- * @author Bradley Caferra
+ * @author Person B - Bradley Caferra
  *
  */
 public class LogHandler {

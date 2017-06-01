@@ -14,19 +14,26 @@ import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * This class is the graphical user interface for the rest of the system. 
+ * Currently it is a ‘dummy’ class which extends JFrame and implements Runnable and ActionLister. 
+ * It should contain an instance of an asgn2Restaurant.PizzaRestaurant object which you can use to 
+ * interact with the rest of the system. You may choose to implement this class as you like, including changing 
+ * its class signature – as long as it  maintains its core responsibility of acting as a GUI for the rest of the system. 
+ * You can also use this class and asgn2Wizards.PizzaWizard to test your system as a whole
+ * 
+ * 
+ * @author Person A - Dietriche Rausim and Person B - Bradley Caferra
  *
- * @author Bradley Caferra and Dietriche Rausim
  */
 public class PizzaGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form PizzaGUI
      */
-    PizzaRestaurant restaurant;
+	private PizzaRestaurant restaurant = new PizzaRestaurant();
    
     public PizzaGUI() {
         initComponents();
-        restaurant = new PizzaRestaurant();
     }
 
     /**

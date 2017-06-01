@@ -17,7 +17,7 @@ import asgn2Pizzas.Pizza;
  *  Any exceptions raised by one of the methods called by this class should be passed to asgn2GUIs.PizzaGUI so that it can be shown to
  *  the user.
  * 
- * @author Dietriche Rausim
+ * @author Person A - Dietriche Rausim and Person B - Bradley Caffera
  *
  */
 public class PizzaRestaurant {
@@ -67,7 +67,11 @@ public class PizzaRestaurant {
 	 * @throws CustomerException if index is invalid.
 	 */
 	public Customer getCustomerByIndex(int index) throws CustomerException{
-		return customers.get(index);
+		try {
+			return customers.get(index);
+		} catch (IndexOutOfBoundsException i) {
+			throw new CustomerException("invalid index");
+		}
 	}
 	
 	/**
@@ -77,7 +81,11 @@ public class PizzaRestaurant {
 	 * @throws PizzaException if index is invalid.
 	 */	
 	public Pizza getPizzaByIndex(int index) throws PizzaException{
-		return pizzas.get(index);
+		try {
+			return pizzas.get(index);
+		} catch (IndexOutOfBoundsException i) {
+			throw new PizzaException("invalid index");
+		}
 	}
 	
 	/**
@@ -110,7 +118,7 @@ public class PizzaRestaurant {
 	public double getTotalDeliveryDistance(){
 		double distance = 0.0;
 		for(Customer c : customers){
-			distance +=c.getDeliveryDistance();
+			distance += c.getDeliveryDistance();
 		}
 		return distance;
 	}
