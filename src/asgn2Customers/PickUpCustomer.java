@@ -28,6 +28,10 @@ public class PickUpCustomer extends Customer {
 	 */
 	public PickUpCustomer(String name, String mobileNumber, int locationX,  int locationY) throws CustomerException {
 		super(name, mobileNumber, locationX, locationY, "Pick Up");
+		if (locationX != 0 || locationY != 0) {
+			throw new CustomerException("Pickup cannot be at store");
+		}
+		
 	}
 
 	/**

@@ -45,6 +45,9 @@ public abstract class Customer {
 		if(name.length() > 20){
 			throw new CustomerException("Customer name too long");
 		}
+		if (name.length() < 1) {
+			throw new CustomerException("Customer name supplied too short");
+		}
 		if(name.equals(new String(new char[name.length()]).replace("\0", " "))){
 			throw new CustomerException("Customer name cannot be blank.");
 		}
