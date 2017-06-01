@@ -34,7 +34,14 @@ public abstract class Customer {
 	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
 	 * @param locationY - The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
 	 * @param type - A human understandable description of this Customer type
-	 * @throws CustomerException if supplied parameters are invalid 
+	 * @throws CustomerException if invalid customer type is input
+	 * @throws CustomerException if Customer name input to long
+	 * @throws CustomerException if Customer name input to short
+	 * @throws CustomerException if Customer name input blank
+	 * @throws CustomerException if mobile number is not 10 digits
+	 * @throws CustomerException if mobile number does not start with 0
+	 * @throws CustomerException if Pickup customer is not at store
+	 * @throws CustomerException if delivery is outside of range
 	 * 
 	 */
 

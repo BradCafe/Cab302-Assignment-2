@@ -23,13 +23,13 @@ public class PickUpCustomer extends Customer {
 	 * @param mobileNumber - The customer mobile number
 	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
 	 * @param locationY  The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @throws CustomerException if supplied parameters are invalid
+	 * @throws CustomerException if customer pickup is not at store
 	 * 
 	 */
 	public PickUpCustomer(String name, String mobileNumber, int locationX,  int locationY) throws CustomerException {
 		super(name, mobileNumber, locationX, locationY, "Pick Up");
 		if (locationX != 0 || locationY != 0) {
-			throw new CustomerException("Pickup cannot be at store");
+			throw new CustomerException("Pickup must be at store");
 		}
 		
 	}

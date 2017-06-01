@@ -31,7 +31,12 @@ public abstract class Pizza  {
 	 * @param deliveryTime - The time that the pizza was delivered to the customer
 	 * @param type -  A human understandable description of this Pizza type
 	 * @param price - The price that the pizza is sold to the customer
-	 * @throws PizzaException if supplied parameters are invalid 
+	 * @throws PizzaException if quantity is below 0 or above 10
+	 * @throws PizzaException if order is placed before store open time
+	 * @throws PizzaException if delivery is ordered before pizza cook time
+	 * @throws PizzaException if deliver is placed before order
+	 * @throws PizzaException if Pizza has waited more then an hour to deliver
+	 * @throws PizzaException if Pizza is not of required type
 	 * 
 	 */
 	
