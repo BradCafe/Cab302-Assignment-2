@@ -10,7 +10,7 @@ import asgn2Exceptions.PizzaException;
  *  The meat lovers pizza has certain toppings listed in Section 5.1 of the Assignment Specification Document.  
  *  A description of the class's fields and their constraints is provided in Section 5.1 of the Assignment Specification.
  * 
- * @author PersonA
+ * @author Dietriche Rausim
  *
  */
 public class MeatLoversPizza extends Pizza {
@@ -33,6 +33,13 @@ public class MeatLoversPizza extends Pizza {
 	 */
 	public MeatLoversPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
 		// TO DO
+		super(quantity, orderTime, deliveryTime, "Meat Lovers Pizza",12);                
+        super.pizzaTopping.add(PizzaTopping.BACON);
+        super.pizzaTopping.add(PizzaTopping.TOMATO);
+        super.pizzaTopping.add(PizzaTopping.CHEESE);
+        super.pizzaTopping.add(PizzaTopping.PEPPERONI);
+        super.pizzaTopping.add(PizzaTopping.SALAMI);
+        calculateCostPerPizza();
 	}
 
 }

@@ -12,7 +12,7 @@ import asgn2Exceptions.PizzaException;
  *  The margherita pizza has certain toppings listed in Section 5.1 of the Assignment Specification Document.  
  *  A description of the class's fields and their constraints is provided in Section 5.1 of the Assignment Specification.
  * 
- * @author Person A
+ * @author Dietriche Rausim
  *
  */
 public class MargheritaPizza extends Pizza {
@@ -36,6 +36,10 @@ public class MargheritaPizza extends Pizza {
 	 */
 	public MargheritaPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
 		// TO DO
+		super(quantity,orderTime,deliveryTime,"Margherita Pizza",8);                
+        super.pizzaTopping.add(PizzaTopping.CHEESE);
+        super.pizzaTopping.add(PizzaTopping.TOMATO);
+        calculateCostPerPizza();
 	}
 
 }
