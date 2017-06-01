@@ -30,13 +30,13 @@ public class LogHandlerCustomerTests {
 	
 	@Before
 	public void setup() throws CustomerException, LogHandlerException{
-		normalCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "2" + "2");
-		emptyNameCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "" + "0433333333" + "DVC" + "2" + "2");
-		longNameCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe Monroe Monroe" + "0433333333" + "DVC" + "2" + "2");
-		typeEmptyCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "" + "2" + "2");
-		typeWrongCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "BAD" + "2" + "2");
-		locationXEmptyCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "" + "2");
-		locationYEmptyCustomer = new String("PZV" + "19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "2" + "");
+		normalCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "2" + "2" + "PZV" + "1");
+		emptyNameCustomer = new String("19:30:00" + "19:50:00" + "" + "0433333333" + "DVC" + "2" + "2" + "PZV" + "1");
+		longNameCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe Monroe Monroe" + "0433333333" + "DVC" + "2" + "2" + "PZV" + "1");
+		typeEmptyCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "" + "2" + "2" + "PZV" + "1");
+		typeWrongCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "BAD" + "2" + "2" + "PZV" + "1");
+		locationXEmptyCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "" + "2" + "PZV" + "1");
+		locationYEmptyCustomer = new String("19:30:00" + "19:50:00" + "Lilly Monroe" + "0433333333" + "DVC" + "2" + "" + "PZV" + "1");
 	}
 	
 	@Test
