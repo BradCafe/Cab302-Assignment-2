@@ -8,7 +8,6 @@ import org.junit.Test;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
-import asgn2Pizzas.Pizza;
 import asgn2Restaurant.PizzaRestaurant;
 
 /**
@@ -80,7 +79,7 @@ public class RestaurantPizzaTests {
 	
 	@Test
 	public void profitTest() throws CustomerException, PizzaException, LogHandlerException{
-		assertTrue(restaurantTest.getTotalProfit() == 1);
+		assertTrue(restaurantTest.getTotalProfit() == 36.5);
 	}
 	
 }
