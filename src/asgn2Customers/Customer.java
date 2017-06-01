@@ -13,6 +13,13 @@ import asgn2Exceptions.CustomerException;
 public abstract class Customer {
 
 
+	protected String name;
+	protected String mobileNumber;
+	protected int locationX;
+	protected int locationY;
+	protected String type;
+	
+	
 	/**
 	 *  This class represents a customer of the Pizza Palace restaurant.  A detailed description of the class's fields
 	 *  and parameters is provided in the Assignment Specification, in particular in Section 5.2. 
@@ -30,14 +37,7 @@ public abstract class Customer {
 	 * @throws CustomerException if supplied parameters are invalid 
 	 * 
 	 */
-	
-	
-	protected String name;
-	protected String mobileNumber;
-	protected int locationX;
-	protected int locationY;
-	protected String type;
-	
+
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
 		if(!(type.equals("Pick Up") | type.equals("Driver Delivery") | type.equals("Drone Delivery"))){
 			throw new CustomerException("Invalid Customer Type.");
@@ -59,6 +59,9 @@ public abstract class Customer {
 		}
 		if(type=="Pick Up" && !((locationX == 0) && (locationY == 0))){
 			throw new CustomerException("Pick Up Customer must be located in the store (0,0).");
+		}
+		if(locationX > 10 || locationX < -10 || locationY > 10 || locationY < -10) {
+			throw new CustomerException("Customer to far away to deliver.");
 		}
 		this.name = name;
 		this.type = type;

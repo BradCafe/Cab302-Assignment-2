@@ -39,7 +39,7 @@ public class DriverDeliveryCustomer extends Customer {
 	 */
 	@Override
 	public double getDeliveryDistance() {	
-		return Math.abs(super.locationX) + Math.abs(super.locationY);
+		return (Math.abs(locationX) + Math.abs(locationY));
 	}
 
 }
