@@ -47,7 +47,7 @@ public abstract class Pizza  {
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		
 		if(quantity <1 || quantity > 10){
-			throw new PizzaException("Not a valid quantity of pizza.")
+			throw new PizzaException("Not a valid quantity of pizza.");
 		}
 		
 		if(deliveryTime.isBefore(orderTime)){
