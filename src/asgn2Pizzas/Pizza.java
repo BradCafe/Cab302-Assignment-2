@@ -39,17 +39,42 @@ public abstract class Pizza  {
        LocalTime orderTime,deliveryTime;
        String type;
        double price;
+       double totalPrice;
        double cost=0.0;
        
        ArrayList<PizzaTopping> pizzaTopping;
   
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
+		
+		if(quantity <1 || quantity > 10){
+			throw new PizzaException("Not a valid quantity of pizza.")
+		}
+		
+		if(deliveryTime.isBefore(orderTime)){
+			throw new PizzaException("Cannot deliver before order is placed.");
+		}
+		if(deliveryTime.isBefore(orderTime.plusMinutes(10))){
+			throw new PizzaException("Pizza not ready.");
+		}
+		if(deliveryTime.isAfter(orderTime.plusHours(1).plusMinutes(10))){
+			throw new PizzaException("Pizza thrown order to long.");
+		}
+		if(orderTime.getHour() > 23 || orderTime.getHour() < 19){
+			throw new PizzaException("Order cannot be places outside of operating hours.");
+		}
+		if(!(type.equals("Margherita") | type.equals("Vegetarian")| type.equals("Meat Lovers"))){
+			throw new PizzaException("Invalid type of pizza.");
+		}
+		
+		
 		this.quantity = quantity;
-              this.orderTime = orderTime;
-              this.deliveryTime = deliveryTime;
-              this.type = type;
-              this.price = price;
-              pizzaTopping = new ArrayList<PizzaTopping>();
+        this.orderTime = orderTime;
+        this.deliveryTime = deliveryTime;
+        this.type = type;
+        this.price = price;
+        this.totalPrice = this.price * this.quantity;
+              
+        pizzaTopping = new ArrayList<PizzaTopping>();
               
 	}
 	
