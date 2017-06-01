@@ -62,7 +62,7 @@ public abstract class Pizza  {
 		if(orderTime.getHour() > 23 || orderTime.getHour() < 19){
 			throw new PizzaException("Order cannot be places outside of operating hours.");
 		}
-		if(!(type.equals("Margherita") | type.equals("Vegetarian")| type.equals("Meat Lovers"))){
+		if(!(type.equals("Margherita Pizza") | type.equals("Vegetarian Pizza")| type.equals("Meat Lovers Pizza"))){
 			throw new PizzaException("Invalid type of pizza.");
 		}
 		
